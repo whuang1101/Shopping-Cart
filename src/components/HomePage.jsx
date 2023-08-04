@@ -27,25 +27,27 @@ function HomePage({items}) {
                         transition: { duration: .5 }
                         ,
                     }}
-                    className="home">Home</motion.h3>
+                    className="home" tabIndex={0}>Home</motion.h3>
                     <Link to="Store">
                         <motion.h3 whileHover={{
                             color: "rgb(255,255,255)",
                             scale: 1.5,
                             transition: { duration: .5 },
-                        }}className="store">Store</motion.h3>
+                        }}className="store" role="link">Store</motion.h3>
                     </Link>
+                    <Link to="/About">
                     <motion.h3 whileHover={{
                         color: "rgb(255,255,255)",
                         scale: 1.5,
                         transition: { duration: .5 },
-                    }}className="about">About</motion.h3>
+                    }}className="about" role="link">About</motion.h3>
+                    </Link>
                 </div>
                 <Link to="/checkout">
-                <motion.div whileHover= {{scale:1.5}}className="shopping">
+                <motion.div whileHover= {{scale:1.5}}className="shopping" role="link">
                     <div className="icon">
                         <Icon path={mdiShopping} size={1.1} color="black" />
-                    <div className="number-cart">{items}</div>
+                    <div className="number-cart" tabIndex={0}>{items}</div>
                     </div>
                     </motion.div>
                 </Link>

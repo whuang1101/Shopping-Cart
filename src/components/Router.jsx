@@ -4,7 +4,7 @@ import StorePage from "./StorePage";
 import ProductPage from "./ProductPage";
 import { useEffect, useState } from "react";
 import CheckOut from "./CheckOut";
-
+import AboutPage from "./AboutPage";
 
 const Router = () => {
   const [shoppingCart, setShoppingCart] = useState({});
@@ -33,8 +33,12 @@ const Router = () => {
         element: <ProductPage cart={shoppingCart} setCart={setShoppingCart} items={totalItems} setItems={setTotalItems}/>
       },
       {
-        path: "/checkout",
+        path: "/Checkout",
         element: <CheckOut cart ={shoppingCart} setCart={setShoppingCart} items={totalItems} setItems={setTotalItems}/>
+      },
+      {
+        path: "/About",
+        element: <AboutPage items={totalItems}/>
       }
     ]);
   

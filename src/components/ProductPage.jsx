@@ -15,10 +15,21 @@ function ProductPage ({cart, setCart, items, setItems}) {
     const [loading,setLoading] = useState(true);
     const controls = useAnimation();
     const [added, setAdded] = useState(true);
+    const handleEnterPress = (e,doSomething) => {
+        if(e.key == "Enter"){
+            doSomething();
+        }
+    }
     const fetchProducts = async() => {
         const items = await fetch(`https://fakestoreapi.com/products/${number}`)
-            .then(res=>res.json())
-            .then(json=> json);
+            .then((res)=>{
+                if(!res.ok){
+                    throw new Error("Network failed to connect");
+                }
+                return res.json()})
+            .catch((error) => {
+                console.error('Error:', error.message);
+              });
         const tempItem = {title: items.title, image: items.image, price:items.price, description: items.description}
         setOneItem(tempItem)
 
@@ -43,16 +54,16 @@ function ProductPage ({cart, setCart, items, setItems}) {
             tempCart[number] += quantity;
             return tempCart; 
         })
-        handleAdded();
     }
     useEffect(() => {
         fetchProducts();
         setTimeout(() => {
-            setLoading(false)
+            setLoading(false)       
         }, 1000);
     },[])
     useEffect(() => {
         setItems(addAllMerch(cart))
+        handleAdded();
     },[cart])
     useEffect(() => {
         controls.start({
@@ -75,7 +86,7 @@ function ProductPage ({cart, setCart, items, setItems}) {
         >
         <header className="product-margin">
                 <div className="navigation">
-                <Link to="../">
+                <Link to="/">
                     <motion.h3  
                     whileHover={{
                         scale: 1.5,
@@ -92,11 +103,13 @@ function ProductPage ({cart, setCart, items, setItems}) {
                             transition: { duration: .5 },
                         }}className="store">Store</motion.h3>
                     </Link>
+                    <Link to="/About">
                     <motion.h3 whileHover={{
                         color: "rgb(255,255,255)",
                         scale: 1.5,
                         transition: { duration: .5 },
                     }}className="about">About</motion.h3>
+                    </Link>
                 </div>
                 <Link to="/checkout">
                     <motion.div whileHover= {{scale:1.5}} animate={controls} className="shopping">
@@ -125,12 +138,12 @@ function ProductPage ({cart, setCart, items, setItems}) {
                     <p className="actual-description">{oneItem.description}</p>
                     </div>
                     <div className="amount-wanted">
-                    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className="decrement" onClick={handleDecrement} role="button" tabIndex={0}>-</motion.div>
+                    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className="decrement" onClick={handleDecrement} role="button" tabIndex={0} onKeyDown={(e) => {handleEnterPress(e,handleDecrement  )}}>-</motion.div>
                     <input className="text-output" type="number" value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value) || 0)} />
-                    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} role="button" tabIndex={0} className="increment" onClick={handleIncrement}>+</motion.div>
+                    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} role="button" tabIndex={0} className="increment" onClick={handleIncrement} onKeyDown={(e) => {handleEnterPress(e,handleIncrement)}}>+</motion.div>
                     </div>
                     {added ?
-                    <motion.div whileHover={{ scale: 1.1, backgroundColor: "rgba(0, 0, 0, 1)", color: "rgb(255, 255, 255)" }} whileTap={{ scale: 0.9 }} className="add-item" onClick={addToCart}>Add To Cart</motion.div>
+                    <motion.div whileHover={{ scale: 1.1, backgroundColor: "rgba(0, 0, 0, 1)", color: "rgb(255, 255, 255)" }} whileTap={{ scale: 0.9 }} className="add-item" onClick={addToCart} onKeyDown={(e) => {handleEnterPress(e,addToCart)}}>Add To Cart</motion.div>
                     :
                     <motion.div whileHover={{ scale: 1.1, backgroundColor: "rgba(0, 0, 0, 1)", color: "rgb(255, 255, 255)" }} whileTap={{ scale: 0.9 }} className="add-item">Added!</motion.div>
 

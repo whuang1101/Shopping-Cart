@@ -14,10 +14,21 @@ function CheckOut ({cart, setCart, items, setItems}) {
     const [loading, setLoading] = useState(false);
     const [subtotal, setSubtotal] = useState(0);
     const [itemsLoaded, setItemsLoaded] = useState(false);
+    const handleEnterPress = (e,doSomething) => {
+        if(e.target.key == "Enter"){
+            doSomething();
+        }
+    }
     const fetchProducts = async() => {
         const newItems = await fetch(`https://fakestoreapi.com/products/`)
-            .then(res=>res.json())
-            .then(json=> json);
+        .then((res)=>{
+            if(!res.ok){
+                throw new Error("Network failed to connect");
+            }
+            return res.json()})
+            .catch((error) => {
+                console.error('Error:', error.message);
+              });
         setAllItems(newItems);
         setTimeout(() => {
             setLoading(true)
@@ -101,11 +112,13 @@ function CheckOut ({cart, setCart, items, setItems}) {
                             transition: { duration: .5 },
                         }}className="store">Store</motion.h3>
                     </Link>
+                    <Link to="/About">
                     <motion.h3 whileHover={{
                         color: "rgb(255,255,255)",
                         scale: 1.5,
                         transition: { duration: .5 },
                     }}className="about">About</motion.h3>
+                    </Link>
                 </div>
                 <Link to="/checkout">
                 <motion.div whileHover= {{scale:1.5}} animate={controls} className="shopping">
@@ -134,9 +147,9 @@ function CheckOut ({cart, setCart, items, setItems}) {
                                     <div className="checkout-title">{allItems[index-1].title}</div>
                                     <div className="checkout-price">${(allItems[index-1].price*1).toFixed(2)}</div>
                                     <div className="checkout-wanted">
-                                        <motion.div whileHover={{scale: 1.1}} whileTap={{scale:.9}} className="checkout-left"  role="button" tabIndex ={0} onClick ={()=> onCartDecrement(index)}>-</motion.div>
+                                        <motion.div whileHover={{scale: 1.1}} whileTap={{scale:.9}} className="checkout-left"  role="button" tabIndex ={0} onClick ={()=> onCartDecrement(index)} onKeyDown={(e) => handleEnterPress(e,onCartDecrement(index))}>-</motion.div>
                                         <input className="checkout-output" type="number" value={quantity} onChange={(e)=> onCartChange(e,index)}/>
-                                        <motion.div whileHover={{scale: 1.1}} whileTap={{scale:.9}} role="button" tabIndex ={0} className="checkout-right" onClick ={()=> onCartIncrement(index)}>+</motion.div>
+                                        <motion.div whileHover={{scale: 1.1}} whileTap={{scale:.9}} role="button" tabIndex ={0} className="checkout-right" onClick ={()=> onCartIncrement(index)} onKeyDown={(e) => handleEnterPress(e,onCartIncrement(index))}>+</motion.div>
                                      </div>
                                 </div>
                                 <div className="price-quantity">
@@ -147,7 +160,7 @@ function CheckOut ({cart, setCart, items, setItems}) {
                         }
                         return null;
                     }))}
-                    {!loading && <BouncingLoadingScreen/>}
+                    {(!loading&& items!== 0)  && <BouncingLoadingScreen/>}
                     {(loading && items!== 0) && <div className="checkout">
                         <div className="subtotal">
                             <div className="subtotal-text">Subtotal:</div>

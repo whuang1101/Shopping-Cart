@@ -12,8 +12,14 @@ function StorePage ({items}) {
 
     const fetchProducts = async() => {
         const items = await fetch('https://fakestoreapi.com/products')
-            .then(res=>res.json())
-            .then(json=> json);
+            .then((res)=>{
+                if(!res.ok){
+                    throw new Error("Network failed to connect");
+                }
+                return res.json()})
+                .catch((error) => {
+                    console.error('Error:', error.message);
+                  });
             setAllItems(items)
         setLoading(false);
     }
@@ -52,11 +58,13 @@ function StorePage ({items}) {
                             scale: 1.5,
                             transition: { duration: .5 },
                         }}className="store">Store</motion.h3>
+                    <Link to="/About">
                     <motion.h3 whileHover={{
                         color: "rgb(255,255,255)",
                         scale: 1.5,
                         transition: { duration: .5 },
                     }}className="about">About</motion.h3>
+                    </Link>
                 </div>
                 <Link to="/checkout">
                 <motion.div whileHover= {{scale:1.5}}className="shopping">
@@ -82,7 +90,7 @@ function StorePage ({items}) {
                                     }}src={data.image} alt={data.title} />
                                 </div>
                                 <div className="product-title"> {data.title} </div>
-                                <div className="price">$ {data.price}</div>
+                                <div className="price">$ {(data.price).toFixed(2)}</div>
                             </motion.div>
                             </Link>
                         )):
