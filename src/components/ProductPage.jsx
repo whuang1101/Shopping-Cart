@@ -1,16 +1,17 @@
-import { motion } from "framer-motion";
+import { motion,useAnimation } from "framer-motion";
 import myPhoto from "../assets/real-image.png";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "../css/product-page.css";
 import Icon from '@mdi/react';
 import { mdiShopping } from '@mdi/js';
+import addAllMerch from "../JS/addAllMerch";
 
-
-function ProductPage ({cart, setCart}) {
+function ProductPage ({cart, setCart, items, setItems}) {
     const { number } = useParams()
     const [oneItem, setOneItem] = useState({});
     const [quantity, setQuantity] = useState(0);
+    const controls = useAnimation();
     const fetchProducts = async() => {
         const items = await fetch(`https://fakestoreapi.com/products/${number}`)
             .then(res=>res.json())
@@ -35,9 +36,18 @@ function ProductPage ({cart, setCart}) {
         })
     }
     useEffect(() => {
-        console.log(cart);
         fetchProducts();
+    },[])
+    useEffect(() => {
+        setItems(addAllMerch(cart))
     },[cart])
+    useEffect(() => {
+        controls.start({
+          scale: [1, 1.2, 1], 
+          transition: { duration: 0.5 },
+        });
+      }, [items, controls]);
+
     return (
         <motion.div className="store-background" initial= {{
             opacity:0,
@@ -55,7 +65,7 @@ function ProductPage ({cart, setCart}) {
                     <motion.h3  
                     whileHover={{
                         scale: 1.5,
-                        color: "white",
+                        color: "rgb(255,255,255)",
                         transition: { duration: .5 }
                         ,
                     }}
@@ -63,23 +73,25 @@ function ProductPage ({cart, setCart}) {
                     </Link>
                     <Link to="../Store">
                         <motion.h3 whileHover={{
-                            color: "white",
+                            color: "rgb(255,255,255)",
                             scale: 1.5,
                             transition: { duration: .5 },
                         }}className="store">Store</motion.h3>
                     </Link>
                     <motion.h3 whileHover={{
-                        color: "white",
+                        color: "rgb(255,255,255)",
                         scale: 1.5,
                         transition: { duration: .5 },
                     }}className="about">About</motion.h3>
                 </div>
-                <motion.div whileHover= {{scale:1.5}}className="shopping">
-                    <div className="icon">
-                    <Icon path={mdiShopping} size={1.1} />
-                    <div className="number-cart">3</div>
-                    </div>
+                <Link to="/checkout">
+                    <motion.div whileHover= {{scale:1.5}} animate={controls}c lassName="shopping">
+                        <motion.div className="icon">
+                        <Icon path={mdiShopping} size={1.1} color="black" />
+                        <motion.div className="number-cart">{items}</motion.div>
+                        </motion.div>
                     </motion.div>
+                </Link>
         </header>
         <main className="shop-main">
             <div className="main-container">

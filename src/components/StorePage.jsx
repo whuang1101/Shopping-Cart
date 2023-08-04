@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 import Icon from '@mdi/react';
 import { mdiShopping } from '@mdi/js';
-function StorePage () {
+function StorePage ({items}) {
     const [allItems, setAllItems] = useState([])
     const item = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
     const [loading, setLoading] = useState(true);
@@ -22,9 +22,9 @@ function StorePage () {
             fetchProducts();
         }, 2000);
     },[])
-    useEffect(() => {
-        console.log(allItems); 
-      }, [allItems]);
+    // useEffect(() => {
+    //     console.log(allItems); 
+    //   }, [allItems]);
     return (
         <motion.div className="store-background" initial= {{
             opacity:0,
@@ -43,29 +43,31 @@ function StorePage () {
                         <motion.h3  
                         whileHover={{
                             scale: 1.5,
-                            color: "white",
+                            color: "rgb(255,255,255)",
                             transition: { duration: .5 }
                             ,
                         }}
                         className="home">Home</motion.h3>
                     </Link>
                         <motion.h3 whileHover={{
-                            color: "white",
+                            color: "rgb(255,255,255)",
                             scale: 1.5,
                             transition: { duration: .5 },
                         }}className="store">Store</motion.h3>
                     <motion.h3 whileHover={{
-                        color: "white",
+                        color: "rgb(255,255,255)",
                         scale: 1.5,
                         transition: { duration: .5 },
                     }}className="about">About</motion.h3>
                 </div>
+                <Link to="/checkout">
                 <motion.div whileHover= {{scale:1.5}}className="shopping">
                     <div className="icon">
-                    <Icon path={mdiShopping} size={1.1} />
-                    <div className="number-cart">3</div>
+                    <Icon path={mdiShopping} size={1.1} color="black" />
+                    <div className="number-cart">{items}</div>
                     </div>
                     </motion.div>
+                </Link>
             </header>
             <main className="shop-main">
                 <div className="main-container">
@@ -82,7 +84,7 @@ function StorePage () {
                                     }}src={data.image} alt={data.title} />
                                 </div>
                                 <div className="product-title"> {data.title} </div>
-                                <div className="price">{data.price}</div>
+                                <div className="price">$ {data.price}</div>
                             </motion.div>
                             </Link>
                         )):

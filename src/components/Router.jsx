@@ -3,11 +3,12 @@ import HomePage from "./HomePage";
 import StorePage from "./StorePage";
 import ProductPage from "./ProductPage";
 import { useEffect, useState } from "react";
-
+import CheckOut from "./CheckOut";
 
 
 const Router = () => {
   const [shoppingCart, setShoppingCart] = useState({});
+  const [totalItems, setTotalItems] = useState(0);
   useEffect(() => {
     let prevShopping = {};
     for (let i = 0; i < 20; i++) {
@@ -21,18 +22,19 @@ const Router = () => {
     const router = createBrowserRouter([
       {
         path: "/",
-        element: <HomePage />
+        element: <HomePage items={totalItems}/>
       },
       {
         path: "/Store",
-        element: <StorePage />
+        element: <StorePage items={totalItems}/>
       },
       {
         path: "/Store/:number",
-        element: <ProductPage cart={shoppingCart} setCart={setShoppingCart}/>
+        element: <ProductPage cart={shoppingCart} setCart={setShoppingCart} items={totalItems} setItems={setTotalItems}/>
       },
       {
         path: "/checkout",
+        element: <CheckOut cart ={shoppingCart} setCart={setShoppingCart} items={totalItems} setItems={setTotalItems}/>
       }
     ]);
   

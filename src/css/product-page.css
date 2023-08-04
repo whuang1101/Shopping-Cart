@@ -21,7 +21,7 @@
     font-size: 1.1em;
 }
 .item-title {
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: bold;
 }
 .one-image {
@@ -41,7 +41,6 @@
     font-size: 1.1em;
 }
 .item-price, .description-title {
-    margin-right: 8em;
     font-size: 2em;
     text-decoration: underline;
 }
