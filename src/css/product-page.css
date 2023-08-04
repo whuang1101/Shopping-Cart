@@ -1,0 +1,83 @@
+.product-display {
+    width: clamp( 10%,1200px, 100%);
+    height: 100%;
+    display: flex;
+    gap: 1em;
+}
+
+.image {
+    position: relative;
+    flex:1;
+    display: flex;
+    justify-content: center;
+}
+.description {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap:1em;
+}
+.item-price {
+    font-size: 1.1em;
+}
+.item-title {
+    font-size: 3em;
+    font-weight: bold;
+}
+.one-image {
+    position: absolute;
+    width: 20em;
+    border-radius: 1em;
+}
+
+.product-margin {
+    margin-bottom: 5em;
+}
+.item-description {
+    display: flex;
+    flex-direction: column;
+}
+.actual-description {
+    font-size: 1.1em;
+}
+.item-price, .description-title {
+    margin-right: 8em;
+    font-size: 2em;
+    text-decoration: underline;
+}
+.text-output {
+    font-size: 1.5em;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-right: none;
+    border-left: none;
+    padding-left: .3em;
+}
+.increment, .decrement {
+    padding-right:1em;
+    padding-left:1em;
+    font-size: 1.5em;
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+}
+.increment{
+    border-radius: 0em 1em 1em 0em;
+}
+.decrement {
+    border-radius: 1em 0em 0em 1em;
+}
+.amount-wanted {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.add-item {
+    display: flex;
+    justify-content: center;
+    padding: .5em;
+    font-size: 1.5em;
+    border-radius: 1em;
+    background-color: white;
+    color:black;
+}

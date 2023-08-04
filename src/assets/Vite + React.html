@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)http://localhost:5173/Store/4 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="module">
+import RefreshRuntime from "/@react-refresh"
+RefreshRuntime.injectIntoGlobalHook(window)
+window.$RefreshReg$ = () => {}
+window.$RefreshSig$ = () => (type) => type
+window.__vite_plugin_react_preamble_installed__ = true
+</script>
+
+    <script type="module" src="./Vite + React_files/client"></script>
+
+    
+    <link rel="icon" type="image/svg+xml" href="http://localhost:5173/vite.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite + React</title>
+  <style type="text/css" data-vite-dev-id="/Users/wilsonhuang/repos/Shopping-Cart/src/css/home-page.css">* {
+    padding: 0;
+    margin: 0;
+}
+.bigger-image {
+    border-radius: 10em;
+    opacity: 1;
+    position: absolute;
+    right:0;
+    top: 0;
+}
+.store-title {
+ background-image: url("/src/assets/Fervent-Fashion.png");
+}
+.background {
+    min-height: 100vh;
+    background-image: url("/src/assets/trendy-background.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    transition: all .3s ease-in;
+}
+.navigation {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .navigation h3 {
+    color: white;
+    position: relative;
+  }
+  
+  .navigation h3::before,
+  .navigation h3::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    bottom: 0;
+    border-bottom: 2px solid white;
+    transition: width 0.3s;
+  }
+  
+  .navigation h3::before {
+    left: 50%;
+  }
+  
+  .navigation h3::after {
+    right: 50%;
+  }
+  
+  .navigation h3:hover::before,
+  .navigation h3:hover::after {
+    width: 50%;
+  }
+  
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  
+  
+header {
+  border-bottom: 2px solid white;
+    flex: .01;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5em;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.navigation {
+    display: flex;
+    gap: 2em;
+    font-size: 1.4em;
+}
+
+main {
+    flex: 15;
+}
+.shop-now {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 1em;
+    font-size: 1.5em;
+    background-color: transparent;
+    color: white;
+    border: 3px solid white;
+    border-radius: 1em;
+    transform: translate(-50%,-50%);
+}</style><style type="text/css" data-vite-dev-id="/Users/wilsonhuang/repos/Shopping-Cart/src/css/store-background.css">.store-background {
+    background-image: linear-gradient(to bottom, rgb(206,178,172) 20%, white);
+    min-height: 100vh;
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.shop-main {
+    display: flex;
+}
+.main-container {
+    flex:1;
+    display: flex;
+    justify-content: center;
+    overflow: scroll;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+.shopping-view {
+    width: 80%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5,1fr); 
+    gap: 3em;
+}
+.shop-item {
+    display: flex;
+    background-color: black;
+    flex-direction: column;
+    border-radius: 1em;
+    height: 30em;
+    gap: 2em;
+}
+.loading-item {
+    position: relative;
+    height: 30em;
+    border-radius: 1em;
+    overflow: hidden;
+}
+
+.loading-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    animation: stream 2s linear infinite;
+}
+.product-image {
+    flex: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid black;
+    background-color: white;
+    border-radius: 1em 1em 0 0em;
+    overflow: hidden;
+    padding: .5em;
+}
+.product-title {
+    flex:1;
+    display: flex;
+    font-size: 1em;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: .2em;
+}
+.price {
+    flex: .5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.product-img {
+    width: 15em;
+    height: 15em;
+    object-fit: contain; 
+}
+@keyframes stream {
+    0% {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+    100% {
+        transform: translate(50%, 50%) rotate(45deg);
+    }
+}
+</style><style type="text/css" data-vite-dev-id="/Users/wilsonhuang/repos/Shopping-Cart/src/css/product-page.css">.product-display {
+    width: 60%;
+    height: 100%;
+    display: flex;
+}
+
+.image {
+    position: relative;
+    flex:1;
+    display: flex;
+    justify-content: center;
+}
+.description {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap:1em;
+}
+.item-price {
+    font-size: 1.1em;
+}
+.item-title {
+    font-size: 3em;
+    font-weight: bold;
+}
+.one-image {
+    position: absolute;
+    width: 20em;
+    border-radius: 1em;
+}
+
+.product-margin {
+    margin-bottom: 5em;
+}
+.item-description {
+    display: flex;
+    flex-direction: column;
+}
+.actual-description {
+    font-size: 1.1em;
+}
+.item-price, .description-title {
+    margin-right: 8em;
+    font-size: 2em;
+    text-decoration: underline;
+}
+.text-output {
+    font-size: 1.5em;
+}
+.increment, .decrement {
+    padding-right:1em;
+    padding-left:1em;
+    font-size: 1.5em;
+    background-color: black;
+    border: 2px white;
+    color: white;
+}
+.increment{
+    border-radius: 0em 1em 1em 0em;
+}
+.decrement {
+    border-radius: 1em 0em 0em 1em;
+}
+.amount-wanted {
+    display: flex;
+    gap: 1em;
+}
+.add-item {
+    display: flex;
+    justify-content: center;
+    padding: .5em;
+    font-size: 1.5em;
+    border-radius: 1em;
+    background-color: black;
+    color:white;
+}</style><script async="" src="./Vite + React_files/adblocker-chromeglobalinjectjs.js"></script></head>
+  <body class="vsc-initialized" data-new-gr-c-s-check-loaded="14.1117.0" data-gr-ext-installed="">
+    <div id="root"><div class="store-background" style="opacity: 1;"><header class="product-margin"><img src="./Vite + React_files/real-image.png" alt="Fashion" class="bigger-image"><div class="navigation"><a href="http://localhost:5173/"><h3 class="home">Home</h3></a><a href="http://localhost:5173/Store"><h3 class="store">Store</h3></a><h3 class="about">About</h3><div class="shopping">shoppingIcon</div></div></header><main class="shop-main"><div class="main-container"><div class="product-display"><div class="image"><img class="one-image" src="./Vite + React_files/71YXzeOuslL._AC_UY879_.jpg" alt="Mens Casual Slim Fit"></div><div class="description"><h2 class="item-title">Mens Casual Slim Fit</h2><p class="item-price">$15.99</p><div class="item-description"><p class="description-title">Description</p><p class="actual-description">The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.</p></div><div class="amount-wanted"><div class="decrement" role="button" tabindex="0" style="transform: none;">-</div><input class="text-output" type="number" value="4"><div role="button" tabindex="0" class="increment" style="transform: none;">+</div></div><div class="add-item">Add To Cart</div></div></div></div></main></div></div>
+    <script type="module" src="./Vite + React_files/main.jsx"></script>
+  
+
+<div id="hl-aria-live-message-container" aria-live="polite" class="visually-hidden"></div><div id="hl-aria-live-alert-container" role="alert" aria-live="assertive" class="visually-hidden"></div></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+  div.grammarly-desktop-integration {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select:none;
+    user-select:none;
+  }
+
+  div.grammarly-desktop-integration:before {
+    content: attr(data-content);
+  }
+</style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

@@ -1,0 +1,114 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.bigger-image {
+    border-radius: 10em;
+    opacity: 1;
+    position: absolute;
+    right:0;
+    top: 0;
+}
+.store-title {
+ background-image: url("../assets/Fervent-Fashion.png");
+}
+.background {
+    min-height: 100vh;
+    background-image: url("../assets/trendy-background.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    transition: all .3s ease-in;
+}
+.navigation {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .navigation h3 {
+    color: black;
+    position: relative;
+  }
+  
+  .navigation h3::before,
+  .navigation h3::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    bottom: 0;
+    border-bottom: 2px solid white;
+    transition: width 0.3s;
+  }
+  
+  .navigation h3::before {
+    left: 50%;
+  }
+  
+  .navigation h3::after {
+    right: 50%;
+  }
+  
+  .navigation h3:hover::before,
+  .navigation h3:hover::after {
+    width: 50%;
+  }
+  
+  .shopping{ 
+    z-index: 2;
+}
+.number-cart {
+  position: absolute;
+  background-color: blue;
+  color: white;
+  border-radius: 4em;
+  bottom: 0%;
+  left: 0%;
+  z-index: 2;
+  padding: .1em;
+  transform: translate(-50%);
+}
+.icon{
+  position: relative;
+}
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  
+  
+header {
+  border-bottom: 2px solid black;
+    flex: .01;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5em;
+    padding-left: 2em;
+    padding-right: 2em;
+    z-index: 1;
+}
+
+.navigation {
+    display: flex;
+    gap: 2em;
+    font-size: 1.4em;
+}
+
+main {
+    flex: 15;
+}
+.shop-now {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 1em;
+    font-size: 1.5em;
+    background-color: transparent;
+    color: white;
+    border: 3px solid white;
+    border-radius: 1em;
+    transform: translate(-50%,-50%);
+}
