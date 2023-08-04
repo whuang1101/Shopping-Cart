@@ -36,8 +36,6 @@ function StorePage ({items}) {
         transition= {{duration:1}}
         >
             <header className="bottom-border">
-                <motion.img
-                    src={myPhoto} alt="Fashion" className="bigger-image"/>
                 <div className="navigation">
                     <Link to="/">
                         <motion.h3  

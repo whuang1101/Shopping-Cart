@@ -7,6 +7,7 @@ import "../css/checkout.css"
 import { useEffect, useState } from "react";
 import addAllMerch from "../JS/addAllMerch"
 import getTotalPrice from "../JS/getTotalPrice";
+import BouncingLoadingScreen from "./BouncingScreen";
 function CheckOut ({cart, setCart, items, setItems}) {
     const controls = useAnimation();
     const [allItems, setAllItems] = useState({})
@@ -18,7 +19,9 @@ function CheckOut ({cart, setCart, items, setItems}) {
             .then(res=>res.json())
             .then(json=> json);
         setAllItems(newItems);
-        setLoading(true)
+        setTimeout(() => {
+            setLoading(true)
+        }, 1000);
     }
     const onCartChange = (e, index) => {
         setCart((prevCart)=>{
@@ -62,8 +65,10 @@ function CheckOut ({cart, setCart, items, setItems}) {
 
     useEffect(() => {
         controls.start({
-            scale: [1, 1.2, 1], 
+            scale: [1, 2, 1], 
             transition: { duration: 0.5 },
+            rotate: [0, -10, 10, -10, 10, 0], 
+            transition: { duration: 0.5, times: [0, 0.2, 0.4, 0.6, 0.8, 1] },
         })
         setItems(addAllMerch(cart));
     },[cart])
@@ -103,7 +108,7 @@ function CheckOut ({cart, setCart, items, setItems}) {
                     }}className="about">About</motion.h3>
                 </div>
                 <Link to="/checkout">
-                <motion.div whileHover= {{scale:1.5}} animate={controls}c lassName="shopping">
+                <motion.div whileHover= {{scale:1.5}} animate={controls} className="shopping">
                     <motion.div className="icon">
                     <Icon path={mdiShopping} size={1.1} color="black" />
                     <motion.div className="number-cart">{items}</motion.div>
@@ -127,12 +132,12 @@ function CheckOut ({cart, setCart, items, setItems}) {
                                 </div>
                                 <div className="product-checkout">
                                     <div className="checkout-title">{allItems[index-1].title}</div>
-                                    <div className="checkout-price">${allItems[index-1].price}</div>
+                                    <div className="checkout-price">${(allItems[index-1].price*1).toFixed(2)}</div>
                                     <div className="checkout-wanted">
                                         <motion.div whileHover={{scale: 1.1}} whileTap={{scale:.9}} className="checkout-left"  role="button" tabIndex ={0} onClick ={()=> onCartDecrement(index)}>-</motion.div>
                                         <input className="checkout-output" type="number" value={quantity} onChange={(e)=> onCartChange(e,index)}/>
                                         <motion.div whileHover={{scale: 1.1}} whileTap={{scale:.9}} role="button" tabIndex ={0} className="checkout-right" onClick ={()=> onCartIncrement(index)}>+</motion.div>
-                                     </div>  
+                                     </div>
                                 </div>
                                 <div className="price-quantity">
                                 ${(allItems[index-1].price * quantity).toFixed(2)} 
@@ -142,25 +147,26 @@ function CheckOut ({cart, setCart, items, setItems}) {
                         }
                         return null;
                     }))}
-                    {(loading &&items )!== 0 && <div className="checkout">
+                    {!loading && <BouncingLoadingScreen/>}
+                    {(loading && items!== 0) && <div className="checkout">
                         <div className="subtotal">
                             <div className="subtotal-text">Subtotal:</div>
                             <div className="subtotal-price">${subtotal}</div>
                         </div>
                         <motion.button className="checkout-button"
-                initial={{ x: "10%"}}
+                initial={{ x: "5%"}}
                 whileHover={{
                     backgroundColor: "rgb(0,0,0)",
                     border: ".2em solid black",
                     color:"rgb(255,255,255)",
-                    scale:1.3,
+                    scale:1.1,
                     textShadow: "0px 0px 1em rgb(255,255,255)",
                 }}
                 whileTap={{
                     backgroundColor: "rgb(0,0,0)",
                     border: ".2em solid black",
                     color:"rgb(255,255,255)",
-                    scale:.8,
+                    scale:.9,
                     textShadow: "0px 0px 1em rgb(255,255,255)",
                 }} onClick={checkOutClick}>Check Out </motion.button>
                         </div>}

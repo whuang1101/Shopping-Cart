@@ -1,5 +1,5 @@
 .product-display {
-    width: clamp( 10%,1200px, 100%);
+    width: clamp( 10%,1200px, 90%);
     height: 100%;
     display: flex;
     gap: 1em;
@@ -79,4 +79,77 @@
     border-radius: 1em;
     background-color: white;
     color:black;
+}
+
+@media screen and (max-width: 768px ) and (min-width: 576px) {
+    .product-margin {
+        margin-bottom: 0em;
+    }
+    .product-display{
+        flex-direction: column;
+    }
+    .one-image{
+        position: relative;
+        flex: 1;
+        width: 10em;
+    }
+    .description{
+        flex: 1;
+        font-size: 1em;
+    }
+    .add-item {
+        background-color: black;
+        color:white;
+    }
+
+}
+@media screen and (max-width: 576px) {
+    .product-margin {
+        margin-bottom: 0em;
+    }
+    .product-display{
+        flex-direction: column;
+    }
+    .one-image{
+        position: relative;
+        flex: 1;
+        width: 10em;
+    }
+    .description{
+        flex: 1;
+        font-size: 1.2em;
+    }
+    .add-item {
+        background-color: black;
+        color:white;
+    }
+    .text-output{
+        width: 70%;
+    }
+    .increment , .decrement{
+        padding-left: .5em;
+        padding-right: .5em;
+    }
+}
+@media screen and (max-width: 992px ) and (min-width: 768px)  {
+    .product-margin {
+        margin-bottom: 5em;
+    }
+    .product-display{
+        flex-direction: row;
+        gap:3em;
+    }
+    .one-image{
+        position: absolute;
+        flex: 1;
+        width: 15em;
+    }
+    .description{
+        flex: 2;
+        font-size: 1.1em;
+    }
+    .add-item {
+        background-color: black;
+        color:white;
+    }
 }
