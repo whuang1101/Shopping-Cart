@@ -9,7 +9,8 @@ This website makes use of react and fake shopping api to create a online store.
 ## Mobile Version 
 <img width="355" alt="image" src="https://github.com/whuang1101/Shopping-Cart/assets/91977590/2ae7d1b7-b508-49a0-a5cb-c33d98ec5beb">
 <img width="359" alt="image" src="https://github.com/whuang1101/Shopping-Cart/assets/91977590/7d8abdbc-a8ee-400a-a0f1-6e634b43fa9d">
-<img width="359" alt="image" src="https://github.com/whuang1101/Shopping-Cart/assets/91977590/45bf4de3-5028-4eac-b214-9b44efda4643">
+<img width="1510" alt="image" src="https://github.com/whuang1101/Shopping-Cart/assets/91977590/be0e281e-4350-4841-ad79-dd0ff05573a5">
+
 
 
 ![Live Demo!!](https://earnest-ganache-26ee42.netlify.app/checkout)
