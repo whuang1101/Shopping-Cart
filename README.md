@@ -27,7 +27,7 @@ This website makes use of react and fake shopping api to create a online store.
 - FakeStore Restful API
 
 ## Works
-- ![Previous Project](https://github.com/whuang1101/PokeMemory)
+- [Previous Project](https://github.com/whuang1101/PokeMemory)
 - Next Project(In the works!)
 
 
