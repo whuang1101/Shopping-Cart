@@ -1,4 +1,4 @@
-# Shopping Cart
+<img width="1506" alt="image" src="https://github.com/whuang1101/Shopping-Cart/assets/91977590/209797bb-cd97-4f8d-8198-2c65a4138f3a"># Shopping Cart
 This website makes use of react and fake shopping api to create a online store.
 ## Web Version
 <img width="1506" alt="image" src="https://github.com/whuang1101/Shopping-Cart/assets/91977590/a6983aca-c618-4697-a215-9d3893d3dff2">
@@ -7,8 +7,9 @@ This website makes use of react and fake shopping api to create a online store.
 
 ## Mobile Version 
 <img width="355" alt="image" src="https://github.com/whuang1101/Shopping-Cart/assets/91977590/2ae7d1b7-b508-49a0-a5cb-c33d98ec5beb">
-<img width="355" alt="image" src="https://github.com/whuang1101/Shopping-Cart/assets/91977590/624d82f9-bbe6-4e4c-9104-0d02922c6358">
-<img width="355" alt="image" src="https://github.com/whuang1101/Shopping-Cart/assets/91977590/302b4581-8eaf-41b3-90b2-df2f133932f6">
+<img width="359" alt="image" src="https://github.com/whuang1101/Shopping-Cart/assets/91977590/e8dbfc59-d799-4ba6-8956-2161d60e27c3">
+<img width="359" alt="image" src="https://github.com/whuang1101/Shopping-Cart/assets/91977590/45bf4de3-5028-4eac-b214-9b44efda4643">
+
 
 ![Live Demo!!](https://earnest-ganache-26ee42.netlify.app/checkout)
 
