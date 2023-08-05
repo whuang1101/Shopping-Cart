@@ -44,7 +44,7 @@ function HomePage({items}) {
                     </Link>
                 </div>
                 <Link to="/checkout">
-                <motion.div whileHover= {{scale:1.5}}className="shopping" role="link">
+                <motion.div whileHover= {{scale:1.5}}className="shopping" role="link" aria-label="Shopping Cart">
                     <div className="icon">
                         <Icon path={mdiShopping} size={1.1} color="black" />
                     <div className="number-cart" tabIndex={0}>{items}</div>

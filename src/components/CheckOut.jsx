@@ -15,7 +15,7 @@ function CheckOut ({cart, setCart, items, setItems}) {
     const [subtotal, setSubtotal] = useState(0);
     const [itemsLoaded, setItemsLoaded] = useState(false);
     const handleEnterPress = (e,doSomething) => {
-        if(e.target.key == "Enter"){
+        if(e.key == "Enter"){
             doSomething();
         }
     }
@@ -121,7 +121,7 @@ function CheckOut ({cart, setCart, items, setItems}) {
                     </Link>
                 </div>
                 <Link to="/checkout">
-                <motion.div whileHover= {{scale:1.5}} animate={controls} className="shopping">
+                <motion.div whileHover= {{scale:1.5}} animate={controls} className="shopping" aria-label="Shopping Cart">
                     <motion.div className="icon">
                     <Icon path={mdiShopping} size={1.1} color="black" />
                     <motion.div className="number-cart">{items}</motion.div>
@@ -147,9 +147,11 @@ function CheckOut ({cart, setCart, items, setItems}) {
                                     <div className="checkout-title">{allItems[index-1].title}</div>
                                     <div className="checkout-price">${(allItems[index-1].price*1).toFixed(2)}</div>
                                     <div className="checkout-wanted">
-                                        <motion.div whileHover={{scale: 1.1}} whileTap={{scale:.9}} className="checkout-left"  role="button" tabIndex ={0} onClick ={()=> onCartDecrement(index)} onKeyDown={(e) => handleEnterPress(e,onCartDecrement(index))}>-</motion.div>
+                                        <motion.div whileHover={{scale: 1.1}} whileTap={{scale:.9}} className="checkout-left"  role="button" tabIndex ={0} 
+                                        onClick ={()=> onCartDecrement(index)} onKeyDown={(e) => handleEnterPress(e, () => onCartDecrement(index))}aria-label="Decrement Quantity">-</motion.div>
                                         <input className="checkout-output" type="number" value={quantity} onChange={(e)=> onCartChange(e,index)}/>
-                                        <motion.div whileHover={{scale: 1.1}} whileTap={{scale:.9}} role="button" tabIndex ={0} className="checkout-right" onClick ={()=> onCartIncrement(index)} onKeyDown={(e) => handleEnterPress(e,onCartIncrement(index))}>+</motion.div>
+                                        <motion.div whileHover={{scale: 1.1}} whileTap={{scale:.9}} role="button" tabIndex ={0} className="checkout-right" onClick ={()=> onCartIncrement(index)}  
+                                         onKeyDown={(e) => handleEnterPress(e, () => onCartIncrement(index))} aria-label="Increment Quantity">+</motion.div>
                                      </div>
                                 </div>
                                 <div className="price-quantity">

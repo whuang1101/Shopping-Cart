@@ -112,7 +112,7 @@ function ProductPage ({cart, setCart, items, setItems}) {
                     </Link>
                 </div>
                 <Link to="/checkout">
-                    <motion.div whileHover= {{scale:1.5}} animate={controls} className="shopping">
+                    <motion.div whileHover= {{scale:1.5}} animate={controls} className="shopping" aria-label="Shopping Cart">
                         <motion.div className="icon">
                         <Icon path={mdiShopping} size={1.1} color="black" />
                         <motion.div className="number-cart">{items}</motion.div>

@@ -67,7 +67,7 @@ function StorePage ({items}) {
                     </Link>
                 </div>
                 <Link to="/checkout">
-                <motion.div whileHover= {{scale:1.5}}className="shopping">
+                <motion.div whileHover= {{scale:1.5}}className="shopping" aria-label="Shopping Cart">
                     <div className="icon">
                     <Icon path={mdiShopping} size={1.1} color="black" />
                     <div className="number-cart">{items}</div>
