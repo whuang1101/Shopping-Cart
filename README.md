@@ -12,7 +12,7 @@ This website makes use of react and fake shopping api to create a online store.
 <img width="359" alt="image" src="https://github.com/whuang1101/Shopping-Cart/assets/91977590/9b4993da-2b26-4f76-9bba-c8e1843ff434">
 
 
-[Live Demo!!](https://earnest-ganache-26ee42.netlify.app/checkout)
+[Live Demo!!](https://earnest-ganache-26ee42.netlify.app/)
 
 ## Features
 - Grabs information from the fakestore restful api and displays it on the website.
