@@ -1,4 +1,4 @@
-<img width="1506" alt="image" src="https://github.com/whuang1101/Shopping-Cart/assets/91977590/209797bb-cd97-4f8d-8198-2c65a4138f3a"># Shopping Cart
+# Shopping Cart
 This website makes use of react and fake shopping api to create a online store.
 ## Web Version
 <img width="1506" alt="image" src="https://github.com/whuang1101/Shopping-Cart/assets/91977590/a6983aca-c618-4697-a215-9d3893d3dff2">
