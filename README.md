@@ -28,7 +28,7 @@ This website makes use of react and fake shopping api to create a online store.
 
 ## Works
 - [Previous Project: Poke Memory](https://github.com/whuang1101/PokeMemory)
-- Next Project(In the works!)
+- [Next Project: Members Only](https://github.com/whuang1101/members-only/)
 
 
 
